@@ -1,6 +1,18 @@
+import { useEffect } from 'react';
+import { api } from '../../services/api';
 import { Container } from './styles';
 
 export const TransactionTable = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api('http://localhost:3000/api/transactions');
+
+      console.log(response);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Container>
       <table>
@@ -30,5 +42,3 @@ export const TransactionTable = () => {
     </Container>
   );
 };
-
-//parei na primeira aula do cap 2 modulo 3
