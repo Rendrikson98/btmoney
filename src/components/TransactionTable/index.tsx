@@ -1,27 +1,9 @@
-import { useEffect, useState } from 'react';
-import { api } from '../../services/api';
+import { useContext } from 'react';
+import { TransactionsContext } from '../TransactionsContext.';
 import { Container } from './styles';
 
-interface Transaction {
-  id: number;
-  title: string;
-  amount: number;
-  type: string;
-  category: string;
-  createdAt: string;
-}
-
 export const TransactionTable = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await api('http://localhost:3000/api/transactions');
-      setTransactions(response.data.transactions);
-      console.log(response);
-    };
-
-    fetchData();
-  }, []);
+  const { transactions } = useContext(TransactionsContext);
 
   return (
     <Container>
@@ -57,4 +39,3 @@ export const TransactionTable = () => {
     </Container>
   );
 };
-//cap 1 mod1 sec 5 aula 1
