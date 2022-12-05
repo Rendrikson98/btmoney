@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { useState } from 'react';
 import { NewTransactionModal } from './components/NewTransactionModal';
 import Modal from 'react-modal';
-import { TransactionProvider } from './components/TransactionsContext.';
+import { TransactionProvider } from './hooks/TransactionsContext.';
 
 Modal.setAppElement('#root');
 
